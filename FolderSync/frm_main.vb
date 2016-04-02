@@ -95,17 +95,17 @@ startmarke:
 
     dicServerFileList = GetServerDirList()
     If dicServerFileList Is Nothing Then
-      trys += 1
-
-      If trys < 4 Then
-        GoTo startmarke
-      Else
+'      trys += 1
+'
+'      If trys < 4 Then
+'        GoTo startmarke
+'      Else
         lvServerFile.Enabled = False
         lvServerFile.ResumeLayout()
         MsgBox("Fehler beim Laden der Dateiliste! Evtl. ist der Server zur Zeit nicht verfügbar. Versuche es bitte erneut.", MsgBoxStyle.Exclamation, "FolderSync - Fehler")
         isBusy = False
         Exit Sub
-      End If
+'      End If
 
     End If
 
@@ -173,7 +173,7 @@ startmarke:
       Else
         sFileSize = fileSize.ToString + " B"
       End If
-      lvi.SubItems.AddRange(New String() {nPath, f.FileDateTime.ToString(), dicServerFileList(f)(2), sFileSize})
+      lvi.SubItems.AddRange(New String() {nPath, f.FileDateTime.ToString(), "diz", sFileSize})
       lvi.Tag = f
 
       If nPath = "" Then
