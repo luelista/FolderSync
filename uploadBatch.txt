@@ -1,0 +1,9 @@
+APPNAME=foldersync
+FOLDER=.\FolderSync\bin\debug
+UP=AxInterop.CCRPFolderTV6.dll
+UP=ccrpftv6.ocx
+UP=FolderSync.exe
+UP=ICSharpCode.SharpZipLib.dll
+UP=Interop.CCRPFolderTV6.dll
+UP=TenTec.Windows.iGridLib.iGrid.dll
+UP=Install_Foldersync.bat

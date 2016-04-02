@@ -1,0 +1,20 @@
+                ID: 19
+           AppName: foldersync
+          AppTitle: FolderSync
+              Desc: 
+              Tags: 
+        BigIconURL: 
+      SmallIconURL: 
+            EinDat: 2010-01-08 17:44:00
+            EinDIZ: mw
+           AendDat: 2010-01-08 17:44:14
+           AendDIZ: mw
+ DefaultInstallDir: 
+        CategoryID: 1
+           RootURL: http://mwupd3.teamwiki.net/files/
+
+AppID	FileID	FileName	LocalTarget	LocalSource	EinDat	EinDIZ	AendDat	AendDIZ	
+	88	FolderSync.exe		FolderSync\bin\Release\FolderSync.exe			2010-01-08 17:45:39	mw	User_CreateLink User_RunProgram CheckForProcessAlways	-1
+	89	ICSharpCode.SharpZipLib.dll		FolderSync\bin\Release\ICSharpCode.SharpZipLib.dll			2010-01-08 17:45:43	mw		-1
+	90	Interop.DirList.dll		FolderSync\bin\Release\Interop.DirList.dll			2010-01-08 17:45:43	mw		-1
+	91	AxInterop.DirList.dll		FolderSync\bin\Release\AxInterop.DirList.dll			2010-01-08 17:45:43	mw		-1

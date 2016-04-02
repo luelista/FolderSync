@@ -1,0 +1,6 @@
+/FolderSync/bin/Debug/
+/FolderSync/bin/Release/
+/FolderSync/obj/
+/FolderSync/publish/
+/*.suo
+/Desktop.ini
