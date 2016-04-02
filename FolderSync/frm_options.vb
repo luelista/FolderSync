@@ -4,8 +4,6 @@ Public Class frm_options
 
   Private Sub frm_options_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
     glob.readTuttiFrutti(Me)
-    glob.readFormPos(Me, False)
-    Me.Size = New Size(874, 406)
   End Sub
 
   Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnApply.Click
@@ -25,17 +23,28 @@ Public Class frm_options
     Me.Close()
 
   End Sub
-  Sub save()
+  Function save() As Boolean
+    If checkCreateBackup.Checked And backupFolder.Text = "" Then
+      MsgBox("Bitte einen Backupfolder einstellen")
+      Return False
+    End If
     glob.saveTuttiFrutti(Me)
-    glob.saveFormPos(Me)
     frm_main.initShortcutButtons()
     frm_main.initSplitterDesign()
     FTP = New Utilities.FTP.FTPclient(glob.para("frm_options__ftp_host"), glob.para("frm_options__ftp_user"), glob.para("frm_options__ftp_pass"))
+    Try
+      FTP.ListDirectory(glob.para("frm_options__ftp_dir"))
 
-  End Sub
+    Catch ex As Exception
+      MsgBox(ex.Message, MsgBoxStyle.Critical, "Ungültige FTP-Zugangsdaten oder Server nicht erreichbar")
+      Return False
+    End Try
+
+    Return True
+  End Function
   Private Sub btnOK_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnOK.Click
-    save()
-    Me.Close()
+    If save() Then _
+      Me.Close()
 
   End Sub
 
@@ -79,6 +88,10 @@ Public Class frm_options
     ftp_user.Text = parts(5)
     ftp_pass.Text = parts(6)
 
+
+  End Sub
+
+  Private Sub GroupBox3_Enter(sender As Object, e As EventArgs) Handles GroupBox3.Enter
 
   End Sub
 End Class

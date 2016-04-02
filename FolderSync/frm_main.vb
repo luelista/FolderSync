@@ -81,33 +81,30 @@ Public Class frm_main
   End Sub
 
   Sub btnRefreshServerFileList_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRefreshServerFileList.Click
-    On Error Resume Next
+    ' On Error Resume Next
 
     'GroupBox1.Enabled = False
     labState.Text = "Dateiliste laden..."
     Timer1.Start()
     Application.DoEvents()
 
-    Dim trys As Integer = 0
-startmarke:
 
     'tvServerFile.Nodes.Clear()
+    Try
+      dicServerFileList = FTP.ListDirectoryDetail(glob.para("frm_options__ftp_dir"))
+    Catch ex As Exception
+      '      trys += 1
+      '
+      '      If trys < 4 Then
+      '        GoTo startmarke
+      '      Else
+      lvServerFile.Enabled = False
+      lvServerFile.ResumeLayout()
+      MsgBox("Fehler beim Laden der Dateiliste! " + ex.Message + vbNewLine + vbNewLine + "Eventuell ist der Server zur Zeit nicht verfügbar. Versuche es bitte erneut.", MsgBoxStyle.Exclamation, "FolderSync - Fehler")
+      isBusy = False
+      Exit Sub
 
-    dicServerFileList = GetServerDirList()
-    If dicServerFileList Is Nothing Then
-'      trys += 1
-'
-'      If trys < 4 Then
-'        GoTo startmarke
-'      Else
-        lvServerFile.Enabled = False
-        lvServerFile.ResumeLayout()
-        MsgBox("Fehler beim Laden der Dateiliste! Evtl. ist der Server zur Zeit nicht verfügbar. Versuche es bitte erneut.", MsgBoxStyle.Exclamation, "FolderSync - Fehler")
-        isBusy = False
-        Exit Sub
-'      End If
-
-    End If
+    End Try
 
     txtServerFolder.Items.Clear()
     txtServerFolder.Items.Add("<ohne Hauptordner>")
@@ -302,7 +299,6 @@ startmarke:
 
     glob.readTuttiFrutti(Me)
 
-    Me.Show()
     Application.DoEvents()
 
     Me.Text = "FolderSync " & fVersion
@@ -324,6 +320,7 @@ startmarke:
     mwRegisterSelf()
     onCommandLinePara(My.Application.CommandLineArgs)
 
+    Me.Show()
     frm_splash.Close()
 
     ' igProgBar1.Attach(igBatchList, igBatchList.Cols("progress"))
@@ -493,21 +490,18 @@ startmarke:
     If lvServerFile.SelectedItems.Count = 0 Then Exit Sub
 
     Dim lvi As ListViewItem = lvServerFile.SelectedItems(0)
+    Dim file As FTPfileInfo = lvi.Tag
+    Try
+      Dim info As ArchiveInfoFile = getFileInformation(file.Filename)
 
-    'Dim fileList As String = TwAjax.getUrlContent("http://teamwiki.de/twiki/write_post.php?mode=getzipfilecontent&file=/foldersync/" + lvi.Tag)
-    Dim fileList As String = TwAjax.ReadFile("foldersync_meta", "filelist_" + lvi.Tag + ".txt")
+      Using f As New frm_fileList
+        f.LoadFromInfo(info)
+        f.ShowDialog()
+      End Using
 
-    Dim lines() As String = Split(fileList, vbNewLine)
-
-    frm_fileList.ListView1.Items.Clear()
-    For Each lin As String In lines
-      frm_fileList.ListView1.Items.Add(lin)
-    Next
-
-
-    frm_fileList.Text = "Dateiliste " + lvi.Tag + " - FolderSync"
-    frm_fileList.Show()
-
+    Catch ex As Exception
+      MsgBox("Fehler: " + ex.Message)
+    End Try
   End Sub
 
 
@@ -582,16 +576,6 @@ startmarke:
     End If
   End Sub
 
-
-  Private Sub checkCreateBackup_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles checkCreateBackup.CheckedChanged
-    If checkCreateBackup.Checked = True And glob.para("frm_options__backupFolder") = "" Then
-      MsgBox("bitte erst einen Backupfolder in den Optionen einstellen")
-      checkCreateBackup.Checked = False
-
-    End If
-  End Sub
-
-
   Private Sub PictureBox1_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) _
   Handles PictureBox1.MouseDown
     If e.Button = Windows.Forms.MouseButtons.Left Then
@@ -609,11 +593,6 @@ startmarke:
 
 
 
-
-  Private Sub lnkUpdate_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles lnkUpdate.LinkClicked
-    startWebUpdate(False)
-
-  End Sub
 
   Private Sub btnClose_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnClose.Click
     Me.Close()
@@ -676,19 +655,6 @@ startmarke:
     End If
   End Sub
 
-  Private Sub lnkTeamwiki_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles lnkTeamwiki.LinkClicked
-    Process.Start("http://vbnet.teamwiki.de/foldersync.html")
-
-  End Sub
-
-  Private Sub lnkAbout_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles lnkAbout.LinkClicked
-    frm_splash.Label1.Hide()
-    frm_splash.Button1.Show()
-    frm_splash.Show()
-
-  End Sub
-
-
   Private Sub lnkClearSuchbox_MouseClick(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles lnkClearSuchbox.MouseClick
     txtSearch.Text = ""
 
@@ -720,22 +686,22 @@ startmarke:
   End Sub
 
   Private Sub btnSettings_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSettings.Click
-    frm_options.Show()
-    frm_options.Activate()
-
+    Using f As New frm_options
+      f.ShowDialog()
+    End Using
   End Sub
 
   Private Sub Label6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label6.Click
     If lvLocalFolder.SelectedItems.Count <> 1 Then
-      Process.Start("explorer.exe", "/e," + txtLocalFolder.Text)
+      Process.Start("explorer.exe", "/e, " + txtLocalFolder.Text)
     Else
-      Process.Start("explorer.exe", "/e,/select," + FP(txtLocalFolder.Text, lvLocalFolder.SelectedItems(0).Text))
+      Process.Start("explorer.exe", "/e,/select, " + FP(txtLocalFolder.Text, lvLocalFolder.SelectedItems(0).Text))
     End If
   End Sub
 
-  Private Sub btnNewestUploads_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNewestUploads.Click
-    frm_news.Show()
-    frm_news.Activate()
+  Private Sub btnAboutbox_Click(sender As Object, e As EventArgs) Handles btnAboutbox.Click
+    Using f As New AboutBox1
+      f.ShowDialog()
+    End Using
   End Sub
-
 End Class

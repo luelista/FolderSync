@@ -23,67 +23,70 @@ Partial Class frm_options
   <System.Diagnostics.DebuggerStepThrough()> _
   Private Sub InitializeComponent()
     Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frm_options))
-    Me.Label1 = New System.Windows.Forms.Label
-    Me.txt_sourceFolder = New System.Windows.Forms.TextBox
-    Me.txt_destFolder = New System.Windows.Forms.TextBox
-    Me.Label2 = New System.Windows.Forms.Label
-    Me.txt_serverHomedir = New System.Windows.Forms.TextBox
-    Me.Label3 = New System.Windows.Forms.Label
-    Me.Button1 = New System.Windows.Forms.Button
-    Me.fbd1 = New System.Windows.Forms.FolderBrowserDialog
-    Me.GroupBox1 = New System.Windows.Forms.GroupBox
-    Me.Label11 = New System.Windows.Forms.Label
-    Me.Label10 = New System.Windows.Forms.Label
-    Me.shortcut4 = New System.Windows.Forms.TextBox
-    Me.shortcut_text4 = New System.Windows.Forms.TextBox
-    Me.Label7 = New System.Windows.Forms.Label
-    Me.shortcut3 = New System.Windows.Forms.TextBox
-    Me.shortcut_text3 = New System.Windows.Forms.TextBox
-    Me.Label6 = New System.Windows.Forms.Label
-    Me.shortcut2 = New System.Windows.Forms.TextBox
-    Me.shortcut_text2 = New System.Windows.Forms.TextBox
-    Me.Label5 = New System.Windows.Forms.Label
-    Me.shortcut1 = New System.Windows.Forms.TextBox
-    Me.shortcut_text1 = New System.Windows.Forms.TextBox
-    Me.Label4 = New System.Windows.Forms.Label
-    Me.GroupBox2 = New System.Windows.Forms.GroupBox
-    Me.Button3 = New System.Windows.Forms.Button
-    Me.finish_soundfile = New System.Windows.Forms.TextBox
-    Me.chk_finish_windowtotop = New System.Windows.Forms.CheckBox
-    Me.chk_finish_playsound = New System.Windows.Forms.CheckBox
-    Me.chk_finish_messagebox = New System.Windows.Forms.CheckBox
-    Me.btnApply = New System.Windows.Forms.Button
-    Me.Panel1 = New System.Windows.Forms.Panel
-    Me.btnCancel = New System.Windows.Forms.Button
-    Me.btnOK = New System.Windows.Forms.Button
-    Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel
-    Me.GroupBox3 = New System.Windows.Forms.GroupBox
-    Me.Button2 = New System.Windows.Forms.Button
-    Me.backupFolder = New System.Windows.Forms.TextBox
-    Me.GroupBox4 = New System.Windows.Forms.GroupBox
-    Me.checkShowServerFolderList = New System.Windows.Forms.CheckBox
-    Me.checkLocalVertical = New System.Windows.Forms.CheckBox
-    Me.PictureBox3 = New System.Windows.Forms.PictureBox
-    Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog
-    Me.GroupBox5 = New System.Windows.Forms.GroupBox
-    Me.LinkLabel2 = New System.Windows.Forms.LinkLabel
-    Me.LinkLabel1 = New System.Windows.Forms.LinkLabel
-    Me.ftp_dir = New System.Windows.Forms.TextBox
-    Me.Label15 = New System.Windows.Forms.Label
-    Me.ftp_pass = New System.Windows.Forms.TextBox
-    Me.Label14 = New System.Windows.Forms.Label
-    Me.ftp_user = New System.Windows.Forms.TextBox
-    Me.Label13 = New System.Windows.Forms.Label
-    Me.ftp_host = New System.Windows.Forms.TextBox
-    Me.Label12 = New System.Windows.Forms.Label
+    Me.Label1 = New System.Windows.Forms.Label()
+    Me.txt_sourceFolder = New System.Windows.Forms.TextBox()
+    Me.txt_destFolder = New System.Windows.Forms.TextBox()
+    Me.Label2 = New System.Windows.Forms.Label()
+    Me.txt_serverHomedir = New System.Windows.Forms.TextBox()
+    Me.Label3 = New System.Windows.Forms.Label()
+    Me.Button1 = New System.Windows.Forms.Button()
+    Me.fbd1 = New System.Windows.Forms.FolderBrowserDialog()
+    Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+    Me.Label11 = New System.Windows.Forms.Label()
+    Me.Label10 = New System.Windows.Forms.Label()
+    Me.shortcut4 = New System.Windows.Forms.TextBox()
+    Me.shortcut_text4 = New System.Windows.Forms.TextBox()
+    Me.Label7 = New System.Windows.Forms.Label()
+    Me.shortcut3 = New System.Windows.Forms.TextBox()
+    Me.shortcut_text3 = New System.Windows.Forms.TextBox()
+    Me.Label6 = New System.Windows.Forms.Label()
+    Me.shortcut2 = New System.Windows.Forms.TextBox()
+    Me.shortcut_text2 = New System.Windows.Forms.TextBox()
+    Me.Label5 = New System.Windows.Forms.Label()
+    Me.shortcut1 = New System.Windows.Forms.TextBox()
+    Me.shortcut_text1 = New System.Windows.Forms.TextBox()
+    Me.Label4 = New System.Windows.Forms.Label()
+    Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+    Me.Button3 = New System.Windows.Forms.Button()
+    Me.finish_soundfile = New System.Windows.Forms.TextBox()
+    Me.chk_finish_windowtotop = New System.Windows.Forms.CheckBox()
+    Me.chk_finish_playsound = New System.Windows.Forms.CheckBox()
+    Me.chk_finish_messagebox = New System.Windows.Forms.CheckBox()
+    Me.btnApply = New System.Windows.Forms.Button()
+    Me.Panel1 = New System.Windows.Forms.Panel()
+    Me.btnCancel = New System.Windows.Forms.Button()
+    Me.btnOK = New System.Windows.Forms.Button()
+    Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+    Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+    Me.Button2 = New System.Windows.Forms.Button()
+    Me.backupFolder = New System.Windows.Forms.TextBox()
+    Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+    Me.checkShowServerFolderList = New System.Windows.Forms.CheckBox()
+    Me.checkLocalVertical = New System.Windows.Forms.CheckBox()
+    Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+    Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+    Me.LinkLabel2 = New System.Windows.Forms.LinkLabel()
+    Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
+    Me.ftp_dir = New System.Windows.Forms.TextBox()
+    Me.Label15 = New System.Windows.Forms.Label()
+    Me.ftp_pass = New System.Windows.Forms.TextBox()
+    Me.Label14 = New System.Windows.Forms.Label()
+    Me.ftp_user = New System.Windows.Forms.TextBox()
+    Me.Label13 = New System.Windows.Forms.Label()
+    Me.ftp_host = New System.Windows.Forms.TextBox()
+    Me.Label12 = New System.Windows.Forms.Label()
+    Me.checkCreateBackup = New System.Windows.Forms.CheckBox()
+    Me.PictureBox3 = New System.Windows.Forms.PictureBox()
+    Me.PictureBox2 = New System.Windows.Forms.PictureBox()
     Me.GroupBox1.SuspendLayout()
     Me.GroupBox2.SuspendLayout()
     Me.Panel1.SuspendLayout()
     Me.TableLayoutPanel1.SuspendLayout()
     Me.GroupBox3.SuspendLayout()
     Me.GroupBox4.SuspendLayout()
-    CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
     Me.GroupBox5.SuspendLayout()
+    CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
+    CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
     Me.SuspendLayout()
     '
     'Label1
@@ -160,7 +163,7 @@ Partial Class frm_options
     Me.GroupBox1.Controls.Add(Me.shortcut1)
     Me.GroupBox1.Controls.Add(Me.shortcut_text1)
     Me.GroupBox1.Controls.Add(Me.Label4)
-    Me.GroupBox1.Location = New System.Drawing.Point(12, 129)
+    Me.GroupBox1.Location = New System.Drawing.Point(12, 126)
     Me.GroupBox1.Name = "GroupBox1"
     Me.GroupBox1.Size = New System.Drawing.Size(564, 160)
     Me.GroupBox1.TabIndex = 8
@@ -170,7 +173,7 @@ Partial Class frm_options
     'Label11
     '
     Me.Label11.AutoSize = True
-    Me.Label11.Location = New System.Drawing.Point(221, 28)
+    Me.Label11.Location = New System.Drawing.Point(213, 26)
     Me.Label11.Name = "Label11"
     Me.Label11.Size = New System.Drawing.Size(28, 13)
     Me.Label11.TabIndex = 14
@@ -179,7 +182,7 @@ Partial Class frm_options
     'Label10
     '
     Me.Label10.AutoSize = True
-    Me.Label10.Location = New System.Drawing.Point(85, 27)
+    Me.Label10.Location = New System.Drawing.Point(77, 25)
     Me.Label10.Name = "Label10"
     Me.Label10.Size = New System.Drawing.Size(29, 13)
     Me.Label10.TabIndex = 13
@@ -187,14 +190,14 @@ Partial Class frm_options
     '
     'shortcut4
     '
-    Me.shortcut4.Location = New System.Drawing.Point(212, 122)
+    Me.shortcut4.Location = New System.Drawing.Point(204, 120)
     Me.shortcut4.Name = "shortcut4"
     Me.shortcut4.Size = New System.Drawing.Size(336, 20)
     Me.shortcut4.TabIndex = 11
     '
     'shortcut_text4
     '
-    Me.shortcut_text4.Location = New System.Drawing.Point(74, 122)
+    Me.shortcut_text4.Location = New System.Drawing.Point(66, 120)
     Me.shortcut_text4.Name = "shortcut_text4"
     Me.shortcut_text4.Size = New System.Drawing.Size(132, 20)
     Me.shortcut_text4.TabIndex = 10
@@ -202,7 +205,7 @@ Partial Class frm_options
     'Label7
     '
     Me.Label7.AutoSize = True
-    Me.Label7.Location = New System.Drawing.Point(19, 125)
+    Me.Label7.Location = New System.Drawing.Point(11, 123)
     Me.Label7.Name = "Label7"
     Me.Label7.Size = New System.Drawing.Size(28, 13)
     Me.Label7.TabIndex = 9
@@ -210,14 +213,14 @@ Partial Class frm_options
     '
     'shortcut3
     '
-    Me.shortcut3.Location = New System.Drawing.Point(212, 96)
+    Me.shortcut3.Location = New System.Drawing.Point(204, 94)
     Me.shortcut3.Name = "shortcut3"
     Me.shortcut3.Size = New System.Drawing.Size(336, 20)
     Me.shortcut3.TabIndex = 8
     '
     'shortcut_text3
     '
-    Me.shortcut_text3.Location = New System.Drawing.Point(74, 96)
+    Me.shortcut_text3.Location = New System.Drawing.Point(66, 94)
     Me.shortcut_text3.Name = "shortcut_text3"
     Me.shortcut_text3.Size = New System.Drawing.Size(132, 20)
     Me.shortcut_text3.TabIndex = 7
@@ -225,7 +228,7 @@ Partial Class frm_options
     'Label6
     '
     Me.Label6.AutoSize = True
-    Me.Label6.Location = New System.Drawing.Point(19, 99)
+    Me.Label6.Location = New System.Drawing.Point(11, 97)
     Me.Label6.Name = "Label6"
     Me.Label6.Size = New System.Drawing.Size(28, 13)
     Me.Label6.TabIndex = 6
@@ -233,14 +236,14 @@ Partial Class frm_options
     '
     'shortcut2
     '
-    Me.shortcut2.Location = New System.Drawing.Point(212, 70)
+    Me.shortcut2.Location = New System.Drawing.Point(204, 68)
     Me.shortcut2.Name = "shortcut2"
     Me.shortcut2.Size = New System.Drawing.Size(336, 20)
     Me.shortcut2.TabIndex = 5
     '
     'shortcut_text2
     '
-    Me.shortcut_text2.Location = New System.Drawing.Point(74, 70)
+    Me.shortcut_text2.Location = New System.Drawing.Point(66, 68)
     Me.shortcut_text2.Name = "shortcut_text2"
     Me.shortcut_text2.Size = New System.Drawing.Size(132, 20)
     Me.shortcut_text2.TabIndex = 4
@@ -248,7 +251,7 @@ Partial Class frm_options
     'Label5
     '
     Me.Label5.AutoSize = True
-    Me.Label5.Location = New System.Drawing.Point(19, 73)
+    Me.Label5.Location = New System.Drawing.Point(11, 71)
     Me.Label5.Name = "Label5"
     Me.Label5.Size = New System.Drawing.Size(28, 13)
     Me.Label5.TabIndex = 3
@@ -256,14 +259,14 @@ Partial Class frm_options
     '
     'shortcut1
     '
-    Me.shortcut1.Location = New System.Drawing.Point(212, 44)
+    Me.shortcut1.Location = New System.Drawing.Point(204, 42)
     Me.shortcut1.Name = "shortcut1"
     Me.shortcut1.Size = New System.Drawing.Size(336, 20)
     Me.shortcut1.TabIndex = 2
     '
     'shortcut_text1
     '
-    Me.shortcut_text1.Location = New System.Drawing.Point(74, 44)
+    Me.shortcut_text1.Location = New System.Drawing.Point(66, 42)
     Me.shortcut_text1.Name = "shortcut_text1"
     Me.shortcut_text1.Size = New System.Drawing.Size(132, 20)
     Me.shortcut_text1.TabIndex = 1
@@ -271,7 +274,7 @@ Partial Class frm_options
     'Label4
     '
     Me.Label4.AutoSize = True
-    Me.Label4.Location = New System.Drawing.Point(19, 47)
+    Me.Label4.Location = New System.Drawing.Point(11, 45)
     Me.Label4.Name = "Label4"
     Me.Label4.Size = New System.Drawing.Size(22, 13)
     Me.Label4.TabIndex = 0
@@ -284,16 +287,16 @@ Partial Class frm_options
     Me.GroupBox2.Controls.Add(Me.chk_finish_windowtotop)
     Me.GroupBox2.Controls.Add(Me.chk_finish_playsound)
     Me.GroupBox2.Controls.Add(Me.chk_finish_messagebox)
-    Me.GroupBox2.Location = New System.Drawing.Point(588, 193)
+    Me.GroupBox2.Location = New System.Drawing.Point(588, 185)
     Me.GroupBox2.Name = "GroupBox2"
-    Me.GroupBox2.Size = New System.Drawing.Size(268, 129)
+    Me.GroupBox2.Size = New System.Drawing.Size(268, 119)
     Me.GroupBox2.TabIndex = 9
     Me.GroupBox2.TabStop = False
     Me.GroupBox2.Text = "Wenn ein Up-/Download fertig ist ..."
     '
     'Button3
     '
-    Me.Button3.Location = New System.Drawing.Point(212, 82)
+    Me.Button3.Location = New System.Drawing.Point(203, 83)
     Me.Button3.Name = "Button3"
     Me.Button3.Size = New System.Drawing.Size(32, 23)
     Me.Button3.TabIndex = 5
@@ -302,7 +305,7 @@ Partial Class frm_options
     '
     'finish_soundfile
     '
-    Me.finish_soundfile.Location = New System.Drawing.Point(22, 84)
+    Me.finish_soundfile.Location = New System.Drawing.Point(13, 85)
     Me.finish_soundfile.Name = "finish_soundfile"
     Me.finish_soundfile.Size = New System.Drawing.Size(184, 20)
     Me.finish_soundfile.TabIndex = 4
@@ -310,7 +313,7 @@ Partial Class frm_options
     'chk_finish_windowtotop
     '
     Me.chk_finish_windowtotop.AutoSize = True
-    Me.chk_finish_windowtotop.Location = New System.Drawing.Point(22, 48)
+    Me.chk_finish_windowtotop.Location = New System.Drawing.Point(13, 43)
     Me.chk_finish_windowtotop.Name = "chk_finish_windowtotop"
     Me.chk_finish_windowtotop.Size = New System.Drawing.Size(192, 17)
     Me.chk_finish_windowtotop.TabIndex = 2
@@ -320,7 +323,7 @@ Partial Class frm_options
     'chk_finish_playsound
     '
     Me.chk_finish_playsound.AutoSize = True
-    Me.chk_finish_playsound.Location = New System.Drawing.Point(22, 67)
+    Me.chk_finish_playsound.Location = New System.Drawing.Point(13, 66)
     Me.chk_finish_playsound.Name = "chk_finish_playsound"
     Me.chk_finish_playsound.Size = New System.Drawing.Size(105, 17)
     Me.chk_finish_playsound.TabIndex = 1
@@ -330,7 +333,7 @@ Partial Class frm_options
     'chk_finish_messagebox
     '
     Me.chk_finish_messagebox.AutoSize = True
-    Me.chk_finish_messagebox.Location = New System.Drawing.Point(22, 29)
+    Me.chk_finish_messagebox.Location = New System.Drawing.Point(13, 20)
     Me.chk_finish_messagebox.Name = "chk_finish_messagebox"
     Me.chk_finish_messagebox.Size = New System.Drawing.Size(133, 17)
     Me.chk_finish_messagebox.TabIndex = 0
@@ -342,7 +345,7 @@ Partial Class frm_options
     Me.btnApply.Dock = System.Windows.Forms.DockStyle.Fill
     Me.btnApply.Location = New System.Drawing.Point(3, 3)
     Me.btnApply.Name = "btnApply"
-    Me.btnApply.Size = New System.Drawing.Size(86, 24)
+    Me.btnApply.Size = New System.Drawing.Size(83, 24)
     Me.btnApply.TabIndex = 10
     Me.btnApply.Text = "Übernehmen"
     Me.btnApply.UseVisualStyleBackColor = True
@@ -366,9 +369,9 @@ Partial Class frm_options
     '
     Me.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
     Me.btnCancel.Dock = System.Windows.Forms.DockStyle.Fill
-    Me.btnCancel.Location = New System.Drawing.Point(95, 3)
+    Me.btnCancel.Location = New System.Drawing.Point(92, 3)
     Me.btnCancel.Name = "btnCancel"
-    Me.btnCancel.Size = New System.Drawing.Size(86, 24)
+    Me.btnCancel.Size = New System.Drawing.Size(83, 24)
     Me.btnCancel.TabIndex = 16
     Me.btnCancel.Text = "Abbrechen"
     Me.btnCancel.UseVisualStyleBackColor = True
@@ -376,9 +379,9 @@ Partial Class frm_options
     'btnOK
     '
     Me.btnOK.Dock = System.Windows.Forms.DockStyle.Fill
-    Me.btnOK.Location = New System.Drawing.Point(187, 3)
+    Me.btnOK.Location = New System.Drawing.Point(181, 3)
     Me.btnOK.Name = "btnOK"
-    Me.btnOK.Size = New System.Drawing.Size(87, 24)
+    Me.btnOK.Size = New System.Drawing.Size(85, 24)
     Me.btnOK.TabIndex = 17
     Me.btnOK.Text = "OK"
     Me.btnOK.UseVisualStyleBackColor = True
@@ -392,27 +395,28 @@ Partial Class frm_options
     Me.TableLayoutPanel1.Controls.Add(Me.btnApply, 0, 0)
     Me.TableLayoutPanel1.Controls.Add(Me.btnOK, 2, 0)
     Me.TableLayoutPanel1.Controls.Add(Me.btnCancel, 1, 0)
-    Me.TableLayoutPanel1.Location = New System.Drawing.Point(582, 340)
+    Me.TableLayoutPanel1.Location = New System.Drawing.Point(586, 340)
     Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
     Me.TableLayoutPanel1.RowCount = 1
     Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-    Me.TableLayoutPanel1.Size = New System.Drawing.Size(277, 30)
+    Me.TableLayoutPanel1.Size = New System.Drawing.Size(269, 30)
     Me.TableLayoutPanel1.TabIndex = 18
     '
     'GroupBox3
     '
+    Me.GroupBox3.Controls.Add(Me.checkCreateBackup)
     Me.GroupBox3.Controls.Add(Me.Button2)
     Me.GroupBox3.Controls.Add(Me.backupFolder)
-    Me.GroupBox3.Location = New System.Drawing.Point(12, 303)
+    Me.GroupBox3.Location = New System.Drawing.Point(12, 295)
     Me.GroupBox3.Name = "GroupBox3"
-    Me.GroupBox3.Size = New System.Drawing.Size(564, 69)
+    Me.GroupBox3.Size = New System.Drawing.Size(564, 76)
     Me.GroupBox3.TabIndex = 19
     Me.GroupBox3.TabStop = False
     Me.GroupBox3.Text = "Backup-Ordner"
     '
     'Button2
     '
-    Me.Button2.Location = New System.Drawing.Point(525, 26)
+    Me.Button2.Location = New System.Drawing.Point(516, 41)
     Me.Button2.Name = "Button2"
     Me.Button2.Size = New System.Drawing.Size(32, 23)
     Me.Button2.TabIndex = 1
@@ -421,7 +425,7 @@ Partial Class frm_options
     '
     'backupFolder
     '
-    Me.backupFolder.Location = New System.Drawing.Point(20, 28)
+    Me.backupFolder.Location = New System.Drawing.Point(13, 43)
     Me.backupFolder.Name = "backupFolder"
     Me.backupFolder.Size = New System.Drawing.Size(498, 20)
     Me.backupFolder.TabIndex = 0
@@ -430,9 +434,9 @@ Partial Class frm_options
     '
     Me.GroupBox4.Controls.Add(Me.checkShowServerFolderList)
     Me.GroupBox4.Controls.Add(Me.checkLocalVertical)
-    Me.GroupBox4.Location = New System.Drawing.Point(588, 100)
+    Me.GroupBox4.Location = New System.Drawing.Point(588, 104)
     Me.GroupBox4.Name = "GroupBox4"
-    Me.GroupBox4.Size = New System.Drawing.Size(268, 84)
+    Me.GroupBox4.Size = New System.Drawing.Size(268, 72)
     Me.GroupBox4.TabIndex = 20
     Me.GroupBox4.TabStop = False
     Me.GroupBox4.Text = "Aussehen"
@@ -442,7 +446,7 @@ Partial Class frm_options
     Me.checkShowServerFolderList.AutoSize = True
     Me.checkShowServerFolderList.Checked = True
     Me.checkShowServerFolderList.CheckState = System.Windows.Forms.CheckState.Checked
-    Me.checkShowServerFolderList.Location = New System.Drawing.Point(20, 50)
+    Me.checkShowServerFolderList.Location = New System.Drawing.Point(13, 44)
     Me.checkShowServerFolderList.Name = "checkShowServerFolderList"
     Me.checkShowServerFolderList.Size = New System.Drawing.Size(215, 17)
     Me.checkShowServerFolderList.TabIndex = 1
@@ -452,21 +456,12 @@ Partial Class frm_options
     'checkLocalVertical
     '
     Me.checkLocalVertical.AutoSize = True
-    Me.checkLocalVertical.Location = New System.Drawing.Point(20, 25)
+    Me.checkLocalVertical.Location = New System.Drawing.Point(13, 19)
     Me.checkLocalVertical.Name = "checkLocalVertical"
     Me.checkLocalVertical.Size = New System.Drawing.Size(239, 17)
     Me.checkLocalVertical.TabIndex = 0
     Me.checkLocalVertical.Text = "Lokal: Baumansicht und Liste nebeneinander"
     Me.checkLocalVertical.UseVisualStyleBackColor = True
-    '
-    'PictureBox3
-    '
-    Me.PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), System.Drawing.Image)
-    Me.PictureBox3.Location = New System.Drawing.Point(617, 12)
-    Me.PictureBox3.Name = "PictureBox3"
-    Me.PictureBox3.Size = New System.Drawing.Size(100, 72)
-    Me.PictureBox3.TabIndex = 40
-    Me.PictureBox3.TabStop = False
     '
     'OpenFileDialog1
     '
@@ -486,15 +481,15 @@ Partial Class frm_options
     Me.GroupBox5.Controls.Add(Me.Label12)
     Me.GroupBox5.Location = New System.Drawing.Point(12, 12)
     Me.GroupBox5.Name = "GroupBox5"
-    Me.GroupBox5.Size = New System.Drawing.Size(564, 103)
+    Me.GroupBox5.Size = New System.Drawing.Size(564, 105)
     Me.GroupBox5.TabIndex = 21
     Me.GroupBox5.TabStop = False
-    Me.GroupBox5.Text = "Server"
+    Me.GroupBox5.Text = "FTP-Server"
     '
     'LinkLabel2
     '
     Me.LinkLabel2.AutoSize = True
-    Me.LinkLabel2.Location = New System.Drawing.Point(68, 78)
+    Me.LinkLabel2.Location = New System.Drawing.Point(63, 78)
     Me.LinkLabel2.Name = "LinkLabel2"
     Me.LinkLabel2.Size = New System.Drawing.Size(49, 13)
     Me.LinkLabel2.TabIndex = 13
@@ -504,7 +499,7 @@ Partial Class frm_options
     'LinkLabel1
     '
     Me.LinkLabel1.AutoSize = True
-    Me.LinkLabel1.Location = New System.Drawing.Point(13, 78)
+    Me.LinkLabel1.Location = New System.Drawing.Point(8, 78)
     Me.LinkLabel1.Name = "LinkLabel1"
     Me.LinkLabel1.Size = New System.Drawing.Size(49, 13)
     Me.LinkLabel1.TabIndex = 12
@@ -513,7 +508,7 @@ Partial Class frm_options
     '
     'ftp_dir
     '
-    Me.ftp_dir.Location = New System.Drawing.Point(378, 21)
+    Me.ftp_dir.Location = New System.Drawing.Point(373, 21)
     Me.ftp_dir.Name = "ftp_dir"
     Me.ftp_dir.Size = New System.Drawing.Size(166, 20)
     Me.ftp_dir.TabIndex = 9
@@ -521,15 +516,15 @@ Partial Class frm_options
     'Label15
     '
     Me.Label15.AutoSize = True
-    Me.Label15.Location = New System.Drawing.Point(296, 24)
+    Me.Label15.Location = New System.Drawing.Point(291, 24)
     Me.Label15.Name = "Label15"
-    Me.Label15.Size = New System.Drawing.Size(65, 13)
+    Me.Label15.Size = New System.Drawing.Size(42, 13)
     Me.Label15.TabIndex = 8
-    Me.Label15.Text = "FTP-Ordner:"
+    Me.Label15.Text = "Ordner:"
     '
     'ftp_pass
     '
-    Me.ftp_pass.Location = New System.Drawing.Point(378, 47)
+    Me.ftp_pass.Location = New System.Drawing.Point(373, 47)
     Me.ftp_pass.Name = "ftp_pass"
     Me.ftp_pass.Size = New System.Drawing.Size(166, 20)
     Me.ftp_pass.TabIndex = 7
@@ -538,15 +533,15 @@ Partial Class frm_options
     'Label14
     '
     Me.Label14.AutoSize = True
-    Me.Label14.Location = New System.Drawing.Point(296, 50)
+    Me.Label14.Location = New System.Drawing.Point(291, 50)
     Me.Label14.Name = "Label14"
-    Me.Label14.Size = New System.Drawing.Size(76, 13)
+    Me.Label14.Size = New System.Drawing.Size(53, 13)
     Me.Label14.TabIndex = 6
-    Me.Label14.Text = "FTP-Passwort:"
+    Me.Label14.Text = "Passwort:"
     '
     'ftp_user
     '
-    Me.ftp_user.Location = New System.Drawing.Point(118, 47)
+    Me.ftp_user.Location = New System.Drawing.Point(113, 47)
     Me.ftp_user.Name = "ftp_user"
     Me.ftp_user.Size = New System.Drawing.Size(166, 20)
     Me.ftp_user.TabIndex = 5
@@ -554,15 +549,15 @@ Partial Class frm_options
     'Label13
     '
     Me.Label13.AutoSize = True
-    Me.Label13.Location = New System.Drawing.Point(13, 50)
+    Me.Label13.Location = New System.Drawing.Point(8, 50)
     Me.Label13.Name = "Label13"
-    Me.Label13.Size = New System.Drawing.Size(81, 13)
+    Me.Label13.Size = New System.Drawing.Size(78, 13)
     Me.Label13.TabIndex = 4
-    Me.Label13.Text = "FTP-Username:"
+    Me.Label13.Text = "Benutzername:"
     '
     'ftp_host
     '
-    Me.ftp_host.Location = New System.Drawing.Point(118, 21)
+    Me.ftp_host.Location = New System.Drawing.Point(113, 21)
     Me.ftp_host.Name = "ftp_host"
     Me.ftp_host.Size = New System.Drawing.Size(166, 20)
     Me.ftp_host.TabIndex = 3
@@ -570,11 +565,43 @@ Partial Class frm_options
     'Label12
     '
     Me.Label12.AutoSize = True
-    Me.Label12.Location = New System.Drawing.Point(13, 24)
+    Me.Label12.Location = New System.Drawing.Point(8, 24)
     Me.Label12.Name = "Label12"
-    Me.Label12.Size = New System.Drawing.Size(55, 13)
+    Me.Label12.Size = New System.Drawing.Size(58, 13)
     Me.Label12.TabIndex = 2
-    Me.Label12.Text = "FTP-Host:"
+    Me.Label12.Text = "Hostname:"
+    '
+    'checkCreateBackup
+    '
+    Me.checkCreateBackup.AutoSize = True
+    Me.checkCreateBackup.Cursor = System.Windows.Forms.Cursors.Hand
+    Me.checkCreateBackup.Location = New System.Drawing.Point(13, 21)
+    Me.checkCreateBackup.Name = "checkCreateBackup"
+    Me.checkCreateBackup.Size = New System.Drawing.Size(263, 17)
+    Me.checkCreateBackup.TabIndex = 13
+    Me.checkCreateBackup.Text = "Vor dem Download automatisch Backups erstellen"
+    Me.checkCreateBackup.UseVisualStyleBackColor = True
+    '
+    'PictureBox3
+    '
+    Me.PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), System.Drawing.Image)
+    Me.PictureBox3.Location = New System.Drawing.Point(597, 16)
+    Me.PictureBox3.Name = "PictureBox3"
+    Me.PictureBox3.Size = New System.Drawing.Size(63, 55)
+    Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+    Me.PictureBox3.TabIndex = 40
+    Me.PictureBox3.TabStop = False
+    '
+    'PictureBox2
+    '
+    Me.PictureBox2.BackColor = System.Drawing.SystemColors.Control
+    Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
+    Me.PictureBox2.Location = New System.Drawing.Point(677, -21)
+    Me.PictureBox2.Name = "PictureBox2"
+    Me.PictureBox2.Size = New System.Drawing.Size(166, 100)
+    Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+    Me.PictureBox2.TabIndex = 39
+    Me.PictureBox2.TabStop = False
     '
     'frm_options
     '
@@ -582,9 +609,10 @@ Partial Class frm_options
     Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
     Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
     Me.CancelButton = Me.btnCancel
-    Me.ClientSize = New System.Drawing.Size(868, 384)
-    Me.Controls.Add(Me.GroupBox5)
+    Me.ClientSize = New System.Drawing.Size(868, 386)
     Me.Controls.Add(Me.PictureBox3)
+    Me.Controls.Add(Me.PictureBox2)
+    Me.Controls.Add(Me.GroupBox5)
     Me.Controls.Add(Me.GroupBox4)
     Me.Controls.Add(Me.GroupBox3)
     Me.Controls.Add(Me.TableLayoutPanel1)
@@ -610,9 +638,10 @@ Partial Class frm_options
     Me.GroupBox3.PerformLayout()
     Me.GroupBox4.ResumeLayout(False)
     Me.GroupBox4.PerformLayout()
-    CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
     Me.GroupBox5.ResumeLayout(False)
     Me.GroupBox5.PerformLayout()
+    CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
+    CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
     Me.ResumeLayout(False)
 
   End Sub
@@ -654,7 +683,6 @@ Partial Class frm_options
   Friend WithEvents GroupBox4 As System.Windows.Forms.GroupBox
   Friend WithEvents checkShowServerFolderList As System.Windows.Forms.CheckBox
   Friend WithEvents checkLocalVertical As System.Windows.Forms.CheckBox
-  Friend WithEvents PictureBox3 As System.Windows.Forms.PictureBox
   Friend WithEvents Button2 As System.Windows.Forms.Button
   Friend WithEvents Button3 As System.Windows.Forms.Button
   Friend WithEvents OpenFileDialog1 As System.Windows.Forms.OpenFileDialog
@@ -669,5 +697,7 @@ Partial Class frm_options
   Friend WithEvents Label15 As System.Windows.Forms.Label
   Friend WithEvents LinkLabel2 As System.Windows.Forms.LinkLabel
   Friend WithEvents LinkLabel1 As System.Windows.Forms.LinkLabel
-
+  Friend WithEvents checkCreateBackup As CheckBox
+  Friend WithEvents PictureBox3 As PictureBox
+  Friend WithEvents PictureBox2 As PictureBox
 End Class

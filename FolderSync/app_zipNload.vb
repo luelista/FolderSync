@@ -68,7 +68,7 @@ Module app_zipNload
     locFolder = loc
     serverFile = remote
     If Directory.Exists(locFolder) Then
-      If frm_main.checkCreateBackup.Checked Then
+      If glob.para("frm_options__checkCreateBackup", "TRUE") = "TRUE" Then
         Dim backup As String = getBackupFolder(loc)
         '  MsgBox(backup)
         Try
@@ -180,29 +180,35 @@ Module app_zipNload
   End Function
 
   Sub writeFileInformation()
+    Dim info As New ArchiveInfoFile
+    info.FileList = New List(Of String)
+
     Dim fileList() As String = Directory.GetFiles(locFolder, "*", SearchOption.AllDirectories)
     Dim startPos As Integer = locFolder.Length
     For i As Integer = 0 To fileList.Length - 1
-      fileList(i) = fileList(i).Substring(startPos)
+      info.FileList.Add(fileList(i).Substring(startPos))
     Next
 
-    Dim INFO(5) As String
-    '0=diz 1=kennung 2=filelist 3=kom
-    INFO(0) = glob.para("diz").PadRight(22)
-    INFO(1) = "MW_FOLDERSYNC_FILEINFO"
-    INFO(2) = Join(fileList, "|##|")
-    INFO(3) = "KOM"
+    info.UserName = glob.para("diz").PadRight(22)
+    info.Comment = "KOM"
+    info.ArchiveName = serverFile
 
-    TwAjax.SaveFile("foldersync", "fileinfo," + serverFile + ".txt", Join(INFO, fileInfoSplitter))
+    Dim tmpName As String =
+        FP(My.Computer.FileSystem.SpecialDirectories.Temp,
+           serverFile + ".nfo")
+    info.Write(tmpName)
+    FTP.Upload(tmpName, glob.para("frm_options__ftp_dir") + IO.Path.ChangeExtension(serverFile, "nfo"))
+
   End Sub
 
-  Function getFileInformation(ByVal serverFileName As String) As String()
-    Dim CONTENT As String = TwAjax.ReadFile("foldersync", "fileinfo," + serverFileName)
+  Function getFileInformation(ByVal serverFileName As String) As ArchiveInfoFile
+    Dim tmpName As String =
+        FP(My.Computer.FileSystem.SpecialDirectories.Temp,
+           serverFileName + ".nfo")
+    FTP.Download(glob.para("frm_options__ftp_dir") + IO.Path.ChangeExtension(serverFileName, "nfo"), tmpName, True)
 
-    Dim INFO() As String = Split(CONTENT, fileInfoSplitter)
-    '0=diz 1=kennung 2=filelist 3=kom
+    Return ArchiveInfoFile.Read(tmpName)
 
-    Return INFO
   End Function
 
 End Module
