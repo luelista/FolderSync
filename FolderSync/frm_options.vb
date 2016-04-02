@@ -60,7 +60,7 @@ Public Class frm_options
   End Sub
 
   Private Sub LinkLabel1_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
-    Dim parts() As String = New String() {"[fsPwdList", dirlist_url.Text, twajax_url.Text, ftp_host.Text, ftp_dir.Text, ftp_user.Text, ftp_pass.Text, "eot]"}
+    Dim parts() As String = New String() {"[fsPwdList", "", "", ftp_host.Text, ftp_dir.Text, ftp_user.Text, ftp_pass.Text, "eot]"}
     Clipboard.Clear()
     Dim out = Join(parts, "$fs$")
 
@@ -70,12 +70,10 @@ Public Class frm_options
 
   Private Sub LinkLabel2_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles LinkLabel2.LinkClicked
     Dim parts() = Split(Clipboard.GetText, "$fs$")
-    If parts.Length <> 8 OrElse parts(0) <> "[fsPwdList" OrElse parts(7) <> "eot]" Then
+    If parts.Length <> 8 OrElse parts(0).EndsWith("[fsPwdList") = False OrElse parts(7).StartsWith("eot]") = False Then
       MsgBox("ungültiges Format")
       Exit Sub
     End If
-    dirlist_url.Text = parts(1)
-    twajax_url.Text = parts(2)
     ftp_host.Text = parts(3)
     ftp_dir.Text = parts(4)
     ftp_user.Text = parts(5)

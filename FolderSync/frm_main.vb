@@ -1,10 +1,12 @@
 ﻿Imports System.IO
 Imports TenTec.Windows.iGridLib
+Imports FolderSync.Utilities.FTP
+
 Public Class frm_main
   Dim m_border As New MVPS.clsFormBorder(Me)
   Dim igProgBar1 As New iGProgressBarCellManager()
   Dim lastShowFilename As String
-  Dim dicServerFileList As Dictionary(Of String, String())
+  Dim dicServerFileList As FTPDirectory
   Dim icon_txtSearch As New vbAccelerator.Components.Controls.TextBoxMarginCustomise()
   Dim icon_txtDiz As New vbAccelerator.Components.Controls.TextBoxMarginCustomise()
 
@@ -113,11 +115,11 @@ startmarke:
     Dim nPath, nFile As String
     Dim pos1 As Integer, lvi As ListViewItem
 
-    For Each f As String In dicServerFileList.Keys
-      If Not f.ToLower.EndsWith(".zip") Then Continue For
-      pos1 = f.LastIndexOf("__")
+    For Each f As FTPfileInfo In dicServerFileList
+      If f.Extension.ToLower <> "zip" Then Continue For
+      pos1 = f.Filename.LastIndexOf("__")
       If pos1 > -1 Then
-        nPath = f.Substring(0, pos1)
+        nPath = f.Filename.Substring(0, pos1)
         If Not txtServerFolder.Items.Contains(nPath) Then txtServerFolder.Items.Add(nPath)
       End If
 
@@ -146,23 +148,23 @@ startmarke:
 
     Dim noGroup As ListViewGroup = lvServerFile.Groups.Add("___nogroup", "<ohne Hauptordner>")
 
-    For Each f As String In dicServerFileList.Keys
-      If Not f.ToLower.EndsWith(".zip") Then Continue For
-      If suchString <> "" And f.ToLower.Contains(suchString) = False Then Continue For
-      pos1 = f.LastIndexOf("__")
+    For Each f As FTPfileInfo In dicServerFileList
+      If f.Extension.ToLower <> "zip" Then Continue For
+      If suchString <> "" And f.Filename.ToLower.Contains(suchString) = False Then Continue For
+      pos1 = f.Filename.LastIndexOf("__")
       If pos1 > -1 Then
-        nPath = f.Substring(0, pos1)
-        nFile = f.Substring(pos1 + 2)
+        nPath = f.Filename.Substring(0, pos1)
+        nFile = f.Filename.Substring(pos1 + 2)
         If group <> "" And group <> nPath Then Continue For
       Else
         nPath = ""
-        nFile = f
+        nFile = f.Filename
         If group <> "" And group <> "__nogroup" Then Continue For
       End If
 
 
-      lvi = lvServerFile.Items.Add(f, nFile, "zip")
-      Dim fileSize As Integer = CInt(dicServerFileList(f)(1))
+      lvi = lvServerFile.Items.Add(f.Filename, nFile, "zip")
+      Dim fileSize As Integer = f.Size
       Dim sFileSize As String = ""
       If fileSize > 1000000 Then
         sFileSize = CInt(fileSize / 1000000).ToString + " MB"
@@ -171,7 +173,7 @@ startmarke:
       Else
         sFileSize = fileSize.ToString + " B"
       End If
-      lvi.SubItems.AddRange(New String() {nPath, dicServerFileList(f)(0), dicServerFileList(f)(2), sFileSize})
+      lvi.SubItems.AddRange(New String() {nPath, f.FileDateTime.ToString(), dicServerFileList(f)(2), sFileSize})
       lvi.Tag = f
 
       If nPath = "" Then
@@ -736,11 +738,4 @@ startmarke:
     frm_news.Activate()
   End Sub
 
-  Private Sub txtServerFolder_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtServerFolder.SelectedIndexChanged
-
-  End Sub
-
-  Private Sub btnUpload_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnUpload.Click
-
-  End Sub
 End Class

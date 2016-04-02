@@ -1,6 +1,7 @@
 Imports System.Web
 Imports System.Text
 Imports System.Security.Cryptography
+Imports FolderSync.Utilities.FTP
 
 Module app_ftp
 
@@ -19,38 +20,17 @@ Module app_ftp
   End Function
 
 
-  Function GetServerDirList() As Dictionary(Of String, String())
+  Function GetServerDirList() As FTPDirectory
     ' On Error Resume Next
     'Stop
 
-    'Dim cont As String = GetUrlContent("http://teamwiki.de/twiki/write_post.php?mode=dirlist&foldersync=1&dir=" + dir)
-    Dim cont As String = GetUrlContent(glob.para("frm_options__dirlist_url"))
-    If cont = "" Then
-      Return Nothing
-    End If
-    cont = getSplitPart(cont)
-    Dim dirList() As String = cont.Split(vbLf)
-    GetServerDirList = New Dictionary(Of String, String())
-    Dim Col() As String
-    Dim errMes As String = ""
-    For Each line As String In dirList
-      Try
-        If line = "" Then Exit For
-        Col = line.Split(vbTab)
-        If Col.Length < 4 Then errMes += "ERROR in line: " + line + vbNewLine + "Zu wenig Spalten" + vbNewLine : Continue For
-        GetServerDirList.Add(Col(1), New String() {Col(2), Col(3), Col(4)})
-      Catch ex As Exception
-        errMes += "ERROR in line: " + line + vbNewLine + ex.Message + vbNewLine
-        Stop
-      End Try
-    Next
-    If errMes <> "" Then MsgBox("Es sind Fehler beim laden der Dateiliste aufgetreten. Die fehlerhaften Einträge werden nicht angezeigt." + vbNewLine + "-------------------------" + vbNewLine + errMes, MsgBoxStyle.Exclamation)
+    Return FTP.ListDirectoryDetail(glob.para("frm_options__ftp_dir"))
 
-    'Stop
+
   End Function
 
   Function GetUrlContent(ByVal url As String, Optional ByVal stripWikitext As Boolean = False) As String
-    
+
     Dim content As String = TwAjax.getUrlContent(url)
 
     If stripWikitext And content.Contains("<!--### WIKITEXT-START ###") Then

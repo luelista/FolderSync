@@ -62,24 +62,20 @@ Partial Class frm_options
     Me.backupFolder = New System.Windows.Forms.TextBox
     Me.GroupBox4 = New System.Windows.Forms.GroupBox
     Me.checkShowServerFolderList = New System.Windows.Forms.CheckBox
-    Me.PictureBox3 = New System.Windows.Forms.PictureBox
     Me.checkLocalVertical = New System.Windows.Forms.CheckBox
+    Me.PictureBox3 = New System.Windows.Forms.PictureBox
     Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog
     Me.GroupBox5 = New System.Windows.Forms.GroupBox
-    Me.dirlist_url = New System.Windows.Forms.TextBox
-    Me.Label8 = New System.Windows.Forms.Label
-    Me.Label12 = New System.Windows.Forms.Label
-    Me.ftp_host = New System.Windows.Forms.TextBox
-    Me.ftp_user = New System.Windows.Forms.TextBox
-    Me.Label13 = New System.Windows.Forms.Label
-    Me.ftp_pass = New System.Windows.Forms.TextBox
-    Me.Label14 = New System.Windows.Forms.Label
+    Me.LinkLabel2 = New System.Windows.Forms.LinkLabel
+    Me.LinkLabel1 = New System.Windows.Forms.LinkLabel
     Me.ftp_dir = New System.Windows.Forms.TextBox
     Me.Label15 = New System.Windows.Forms.Label
-    Me.Label16 = New System.Windows.Forms.Label
-    Me.twajax_url = New System.Windows.Forms.TextBox
-    Me.LinkLabel1 = New System.Windows.Forms.LinkLabel
-    Me.LinkLabel2 = New System.Windows.Forms.LinkLabel
+    Me.ftp_pass = New System.Windows.Forms.TextBox
+    Me.Label14 = New System.Windows.Forms.Label
+    Me.ftp_user = New System.Windows.Forms.TextBox
+    Me.Label13 = New System.Windows.Forms.Label
+    Me.ftp_host = New System.Windows.Forms.TextBox
+    Me.Label12 = New System.Windows.Forms.Label
     Me.GroupBox1.SuspendLayout()
     Me.GroupBox2.SuspendLayout()
     Me.Panel1.SuspendLayout()
@@ -164,7 +160,7 @@ Partial Class frm_options
     Me.GroupBox1.Controls.Add(Me.shortcut1)
     Me.GroupBox1.Controls.Add(Me.shortcut_text1)
     Me.GroupBox1.Controls.Add(Me.Label4)
-    Me.GroupBox1.Location = New System.Drawing.Point(12, 156)
+    Me.GroupBox1.Location = New System.Drawing.Point(12, 129)
     Me.GroupBox1.Name = "GroupBox1"
     Me.GroupBox1.Size = New System.Drawing.Size(564, 160)
     Me.GroupBox1.TabIndex = 8
@@ -407,16 +403,16 @@ Partial Class frm_options
     '
     Me.GroupBox3.Controls.Add(Me.Button2)
     Me.GroupBox3.Controls.Add(Me.backupFolder)
-    Me.GroupBox3.Location = New System.Drawing.Point(12, 322)
+    Me.GroupBox3.Location = New System.Drawing.Point(12, 303)
     Me.GroupBox3.Name = "GroupBox3"
-    Me.GroupBox3.Size = New System.Drawing.Size(564, 50)
+    Me.GroupBox3.Size = New System.Drawing.Size(564, 69)
     Me.GroupBox3.TabIndex = 19
     Me.GroupBox3.TabStop = False
     Me.GroupBox3.Text = "Backup-Ordner"
     '
     'Button2
     '
-    Me.Button2.Location = New System.Drawing.Point(525, 18)
+    Me.Button2.Location = New System.Drawing.Point(525, 26)
     Me.Button2.Name = "Button2"
     Me.Button2.Size = New System.Drawing.Size(32, 23)
     Me.Button2.TabIndex = 1
@@ -425,7 +421,7 @@ Partial Class frm_options
     '
     'backupFolder
     '
-    Me.backupFolder.Location = New System.Drawing.Point(20, 20)
+    Me.backupFolder.Location = New System.Drawing.Point(20, 28)
     Me.backupFolder.Name = "backupFolder"
     Me.backupFolder.Size = New System.Drawing.Size(498, 20)
     Me.backupFolder.TabIndex = 0
@@ -453,15 +449,6 @@ Partial Class frm_options
     Me.checkShowServerFolderList.Text = "Server: Liste aller Hauptordner anzeigen"
     Me.checkShowServerFolderList.UseVisualStyleBackColor = True
     '
-    'PictureBox3
-    '
-    Me.PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), System.Drawing.Image)
-    Me.PictureBox3.Location = New System.Drawing.Point(617, 12)
-    Me.PictureBox3.Name = "PictureBox3"
-    Me.PictureBox3.Size = New System.Drawing.Size(100, 72)
-    Me.PictureBox3.TabIndex = 40
-    Me.PictureBox3.TabStop = False
-    '
     'checkLocalVertical
     '
     Me.checkLocalVertical.AutoSize = True
@@ -472,6 +459,15 @@ Partial Class frm_options
     Me.checkLocalVertical.Text = "Lokal: Baumansicht und Liste nebeneinander"
     Me.checkLocalVertical.UseVisualStyleBackColor = True
     '
+    'PictureBox3
+    '
+    Me.PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), System.Drawing.Image)
+    Me.PictureBox3.Location = New System.Drawing.Point(617, 12)
+    Me.PictureBox3.Name = "PictureBox3"
+    Me.PictureBox3.Size = New System.Drawing.Size(100, 72)
+    Me.PictureBox3.TabIndex = 40
+    Me.PictureBox3.TabStop = False
+    '
     'OpenFileDialog1
     '
     Me.OpenFileDialog1.FileName = "OpenFileDialog1"
@@ -480,8 +476,6 @@ Partial Class frm_options
     '
     Me.GroupBox5.Controls.Add(Me.LinkLabel2)
     Me.GroupBox5.Controls.Add(Me.LinkLabel1)
-    Me.GroupBox5.Controls.Add(Me.Label16)
-    Me.GroupBox5.Controls.Add(Me.twajax_url)
     Me.GroupBox5.Controls.Add(Me.ftp_dir)
     Me.GroupBox5.Controls.Add(Me.Label15)
     Me.GroupBox5.Controls.Add(Me.ftp_pass)
@@ -490,66 +484,52 @@ Partial Class frm_options
     Me.GroupBox5.Controls.Add(Me.Label13)
     Me.GroupBox5.Controls.Add(Me.ftp_host)
     Me.GroupBox5.Controls.Add(Me.Label12)
-    Me.GroupBox5.Controls.Add(Me.Label8)
-    Me.GroupBox5.Controls.Add(Me.dirlist_url)
     Me.GroupBox5.Location = New System.Drawing.Point(12, 12)
     Me.GroupBox5.Name = "GroupBox5"
-    Me.GroupBox5.Size = New System.Drawing.Size(564, 135)
+    Me.GroupBox5.Size = New System.Drawing.Size(564, 103)
     Me.GroupBox5.TabIndex = 21
     Me.GroupBox5.TabStop = False
     Me.GroupBox5.Text = "Server"
     '
-    'dirlist_url
+    'LinkLabel2
     '
-    Me.dirlist_url.Location = New System.Drawing.Point(122, 20)
-    Me.dirlist_url.Name = "dirlist_url"
-    Me.dirlist_url.Size = New System.Drawing.Size(426, 20)
-    Me.dirlist_url.TabIndex = 0
+    Me.LinkLabel2.AutoSize = True
+    Me.LinkLabel2.Location = New System.Drawing.Point(68, 78)
+    Me.LinkLabel2.Name = "LinkLabel2"
+    Me.LinkLabel2.Size = New System.Drawing.Size(49, 13)
+    Me.LinkLabel2.TabIndex = 13
+    Me.LinkLabel2.TabStop = True
+    Me.LinkLabel2.Text = "Einfügen"
     '
-    'Label8
+    'LinkLabel1
     '
-    Me.Label8.AutoSize = True
-    Me.Label8.Location = New System.Drawing.Point(17, 24)
-    Me.Label8.Name = "Label8"
-    Me.Label8.Size = New System.Drawing.Size(60, 13)
-    Me.Label8.TabIndex = 1
-    Me.Label8.Text = "Dirlist-URL:"
+    Me.LinkLabel1.AutoSize = True
+    Me.LinkLabel1.Location = New System.Drawing.Point(13, 78)
+    Me.LinkLabel1.Name = "LinkLabel1"
+    Me.LinkLabel1.Size = New System.Drawing.Size(49, 13)
+    Me.LinkLabel1.TabIndex = 12
+    Me.LinkLabel1.TabStop = True
+    Me.LinkLabel1.Text = "Kopieren"
     '
-    'Label12
+    'ftp_dir
     '
-    Me.Label12.AutoSize = True
-    Me.Label12.Location = New System.Drawing.Point(17, 76)
-    Me.Label12.Name = "Label12"
-    Me.Label12.Size = New System.Drawing.Size(55, 13)
-    Me.Label12.TabIndex = 2
-    Me.Label12.Text = "FTP-Host:"
+    Me.ftp_dir.Location = New System.Drawing.Point(378, 21)
+    Me.ftp_dir.Name = "ftp_dir"
+    Me.ftp_dir.Size = New System.Drawing.Size(166, 20)
+    Me.ftp_dir.TabIndex = 9
     '
-    'ftp_host
+    'Label15
     '
-    Me.ftp_host.Location = New System.Drawing.Point(122, 73)
-    Me.ftp_host.Name = "ftp_host"
-    Me.ftp_host.Size = New System.Drawing.Size(166, 20)
-    Me.ftp_host.TabIndex = 3
-    '
-    'ftp_user
-    '
-    Me.ftp_user.Location = New System.Drawing.Point(122, 99)
-    Me.ftp_user.Name = "ftp_user"
-    Me.ftp_user.Size = New System.Drawing.Size(166, 20)
-    Me.ftp_user.TabIndex = 5
-    '
-    'Label13
-    '
-    Me.Label13.AutoSize = True
-    Me.Label13.Location = New System.Drawing.Point(17, 102)
-    Me.Label13.Name = "Label13"
-    Me.Label13.Size = New System.Drawing.Size(81, 13)
-    Me.Label13.TabIndex = 4
-    Me.Label13.Text = "FTP-Username:"
+    Me.Label15.AutoSize = True
+    Me.Label15.Location = New System.Drawing.Point(296, 24)
+    Me.Label15.Name = "Label15"
+    Me.Label15.Size = New System.Drawing.Size(65, 13)
+    Me.Label15.TabIndex = 8
+    Me.Label15.Text = "FTP-Ordner:"
     '
     'ftp_pass
     '
-    Me.ftp_pass.Location = New System.Drawing.Point(382, 99)
+    Me.ftp_pass.Location = New System.Drawing.Point(378, 47)
     Me.ftp_pass.Name = "ftp_pass"
     Me.ftp_pass.Size = New System.Drawing.Size(166, 20)
     Me.ftp_pass.TabIndex = 7
@@ -558,63 +538,43 @@ Partial Class frm_options
     'Label14
     '
     Me.Label14.AutoSize = True
-    Me.Label14.Location = New System.Drawing.Point(300, 102)
+    Me.Label14.Location = New System.Drawing.Point(296, 50)
     Me.Label14.Name = "Label14"
     Me.Label14.Size = New System.Drawing.Size(76, 13)
     Me.Label14.TabIndex = 6
     Me.Label14.Text = "FTP-Passwort:"
     '
-    'ftp_dir
+    'ftp_user
     '
-    Me.ftp_dir.Location = New System.Drawing.Point(382, 73)
-    Me.ftp_dir.Name = "ftp_dir"
-    Me.ftp_dir.Size = New System.Drawing.Size(166, 20)
-    Me.ftp_dir.TabIndex = 9
+    Me.ftp_user.Location = New System.Drawing.Point(118, 47)
+    Me.ftp_user.Name = "ftp_user"
+    Me.ftp_user.Size = New System.Drawing.Size(166, 20)
+    Me.ftp_user.TabIndex = 5
     '
-    'Label15
+    'Label13
     '
-    Me.Label15.AutoSize = True
-    Me.Label15.Location = New System.Drawing.Point(300, 76)
-    Me.Label15.Name = "Label15"
-    Me.Label15.Size = New System.Drawing.Size(65, 13)
-    Me.Label15.TabIndex = 8
-    Me.Label15.Text = "FTP-Ordner:"
+    Me.Label13.AutoSize = True
+    Me.Label13.Location = New System.Drawing.Point(13, 50)
+    Me.Label13.Name = "Label13"
+    Me.Label13.Size = New System.Drawing.Size(81, 13)
+    Me.Label13.TabIndex = 4
+    Me.Label13.Text = "FTP-Username:"
     '
-    'Label16
+    'ftp_host
     '
-    Me.Label16.AutoSize = True
-    Me.Label16.Location = New System.Drawing.Point(17, 50)
-    Me.Label16.Name = "Label16"
-    Me.Label16.Size = New System.Drawing.Size(70, 13)
-    Me.Label16.TabIndex = 11
-    Me.Label16.Text = "TwAjax-URL:"
+    Me.ftp_host.Location = New System.Drawing.Point(118, 21)
+    Me.ftp_host.Name = "ftp_host"
+    Me.ftp_host.Size = New System.Drawing.Size(166, 20)
+    Me.ftp_host.TabIndex = 3
     '
-    'twajax_url
+    'Label12
     '
-    Me.twajax_url.Location = New System.Drawing.Point(122, 46)
-    Me.twajax_url.Name = "twajax_url"
-    Me.twajax_url.Size = New System.Drawing.Size(426, 20)
-    Me.twajax_url.TabIndex = 10
-    '
-    'LinkLabel1
-    '
-    Me.LinkLabel1.AutoSize = True
-    Me.LinkLabel1.Location = New System.Drawing.Point(408, 4)
-    Me.LinkLabel1.Name = "LinkLabel1"
-    Me.LinkLabel1.Size = New System.Drawing.Size(30, 13)
-    Me.LinkLabel1.TabIndex = 12
-    Me.LinkLabel1.TabStop = True
-    Me.LinkLabel1.Text = "copy"
-    '
-    'LinkLabel2
-    '
-    Me.LinkLabel2.AutoSize = True
-    Me.LinkLabel2.Location = New System.Drawing.Point(444, 4)
-    Me.LinkLabel2.Name = "LinkLabel2"
-    Me.LinkLabel2.Size = New System.Drawing.Size(33, 13)
-    Me.LinkLabel2.TabIndex = 13
-    Me.LinkLabel2.TabStop = True
-    Me.LinkLabel2.Text = "paste"
+    Me.Label12.AutoSize = True
+    Me.Label12.Location = New System.Drawing.Point(13, 24)
+    Me.Label12.Name = "Label12"
+    Me.Label12.Size = New System.Drawing.Size(55, 13)
+    Me.Label12.TabIndex = 2
+    Me.Label12.Text = "FTP-Host:"
     '
     'frm_options
     '
@@ -705,12 +665,8 @@ Partial Class frm_options
   Friend WithEvents Label13 As System.Windows.Forms.Label
   Friend WithEvents ftp_host As System.Windows.Forms.TextBox
   Friend WithEvents Label12 As System.Windows.Forms.Label
-  Friend WithEvents Label8 As System.Windows.Forms.Label
-  Friend WithEvents dirlist_url As System.Windows.Forms.TextBox
   Friend WithEvents ftp_dir As System.Windows.Forms.TextBox
   Friend WithEvents Label15 As System.Windows.Forms.Label
-  Friend WithEvents Label16 As System.Windows.Forms.Label
-  Friend WithEvents twajax_url As System.Windows.Forms.TextBox
   Friend WithEvents LinkLabel2 As System.Windows.Forms.LinkLabel
   Friend WithEvents LinkLabel1 As System.Windows.Forms.LinkLabel
 

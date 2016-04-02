@@ -72,9 +72,9 @@ Partial Class frm_splash
     Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
     Me.Label2.Location = New System.Drawing.Point(32, 230)
     Me.Label2.Name = "Label2"
-    Me.Label2.Size = New System.Drawing.Size(68, 15)
+    Me.Label2.Size = New System.Drawing.Size(63, 15)
     Me.Label2.TabIndex = 3
-    Me.Label2.Text = "Version 4.0"
+    Me.Label2.Text = "Version xx"
     '
     'Label3
     '
